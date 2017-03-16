@@ -1,31 +1,22 @@
 import React, { Component, PropTypes } from 'react';
+
 const propTypes = {
+  onStatsCheck: React.PropTypes.func,
 };
+
 const defaultProps = {
+  onStatsCheck: () => { console.error('onStatsCheck is not defined'); }
 };
+
 class Stats extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      memberCount: (this.props.memberData).length,
-      checkedMemberCount: (this.props.memberData).filter((member) => {
-        return member.checked;
-      }).length,
-    };
-    // console.log(this.state.checkedMemberCount);
-  }
-
-  getCheckedMemberCount(member) {
-    const checkedMember = this.state.memberCount.filter((member) => {
-      return member.checked;
-    });
-    return checkedMember.length;
   }
 
   render() {
     return (
       <div>
-        {this.state.checkedMemberCount} / {this.state.memberCount}
+        {this.props.checkedMemberCount} / {this.props.memberCount}
       </div>
     );
   }

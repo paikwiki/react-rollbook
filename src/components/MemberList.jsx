@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
-  onCheck : React.PropTypes.func,
+  onCheck: React.PropTypes.func,
 };
+
 const defaultProps = {
-  onCheck : () => {
-    console.log('handleCheck is not defined');
-  }
+  onCheck: () => { console.error('handleCheck is not defined'); }
 };
+
 class MemberList extends Component {
   constructor(props) {
     super(props);
@@ -18,36 +18,11 @@ class MemberList extends Component {
   }
 
   handleClick(i) {
-    console.log(i);
+    // console.log(i);
     this.setState = {
       selectedKey: i,
     };
     this.props.onCheck(i);
-
-    // console.log();
-    // console.log(this.props.memberData[i].checked);
-    // if(!this.props.memberData[i].checked) {
-    //
-    // } else {
-    //   this.setState({
-    //     memberData[i].checked: false,
-    //   })
-    // }
-    // if(!this.props.memberData[i].checked) {
-      // this.props.memberData[i].setState({
-      //   checked: true,
-      // });
-    // }
-    // console.log(this.props.memberData);
-    // if(!this.checked) {
-    //   this.setState({
-    //     checked: true,
-    //   });
-    // } else {
-    //   this.setState({
-    //     checked: false,
-    //   });
-    // }
   }
   render() {
     const mapToComponents = (data) => {
@@ -62,7 +37,7 @@ class MemberList extends Component {
         return (
           <p
             key={i}
-            onClick={()=> this.handleClick(i)}
+            onClick={() => this.handleClick(i)}
           >
             <span>{member.name}</span>
             <span>{member.checked ? '√' : ''}</span>
