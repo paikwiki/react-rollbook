@@ -12,7 +12,7 @@ class Stats extends Component {
         return member.checked;
       }).length,
     };
-    console.log(this.state.checkedMemberCount);
+    // console.log(this.state.checkedMemberCount);
   }
 
   getCheckedMemberCount(member) {
